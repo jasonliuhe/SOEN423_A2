@@ -1,0 +1,196 @@
+Oct 15, 2020 4:37:15 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 4:37:30 PM User main
+INFO: User key in: exchangeitem
+Oct 15, 2020 4:37:30 PM User main
+INFO: Display: Number of Parameter incorrect. Please try again
+Oct 15, 2020 4:37:30 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 4:37:48 PM User main
+INFO: User key in: exchangeitem qc1 qc2
+Oct 15, 2020 4:37:48 PM User main
+INFO: Display: Number of Parameter incorrect. Please try again
+Oct 15, 2020 4:37:48 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 4:38:05 PM User main
+INFO: User key in: exchangeitem qc1 qc2 221020
+Oct 15, 2020 4:38:05 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:37:34 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:38:16 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:38:16 PM User main
+WARNING: The parameter format is incorrect.
+Oct 15, 2020 6:39:10 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:39:16 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:39:16 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:43:17 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:43:17 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:45:29 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:45:29 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:47:22 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:47:22 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:48:34 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:48:34 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:49:19 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:49:19 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:50:28 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:50:28 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:51:03 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:51:03 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:52:24 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:52:24 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:52:26 PM User main
+INFO: User key in: 
+Oct 15, 2020 6:52:26 PM User main
+INFO: Display: Please key in the right function name.
+Oct 15, 2020 6:52:26 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:52:28 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:52:28 PM User main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:52:32 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 15, 2020 6:52:32 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:13:18 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:13:34 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:14:54 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:14:59 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:15:13 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:15:20 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:16:20 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:16:42 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:19:03 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:19:19 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:22:07 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:22:18 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:22:18 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:22:44 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:22:44 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:22:51 PM User main
+INFO: User key in: quit
+Oct 16, 2020 12:25:01 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:25:04 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:25:04 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:26:03 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 12:26:03 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:26:06 PM User main
+INFO: User key in: quit
+Oct 16, 2020 1:30:53 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:30:59 PM User main
+INFO: User key in: additem qc1 box 1 40
+Oct 16, 2020 1:30:59 PM User main
+INFO: Display: Please key in the right function name.
+Oct 16, 2020 1:30:59 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:31:10 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 16, 2020 1:31:11 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:32:49 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 16, 2020 1:32:49 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:34:08 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 16, 2020 1:34:08 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:34:48 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 16, 2020 1:34:48 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:35:46 PM User main
+INFO: User key in: purchaseitem on1 15102020
+Oct 16, 2020 1:35:46 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:38:18 PM User main
+INFO: User key in: purchaseitem on2 15102020
+Oct 16, 2020 1:38:18 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:46:52 PM User main
+INFO: User key in: purchaseitem on2 15102020
+Oct 16, 2020 1:46:52 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:51:38 PM User main
+INFO: User key in: purchaseitem on2 15102020
+Oct 16, 2020 1:51:38 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:52:27 PM User main
+INFO: User key in: purchaseitem bc1 15102020
+Oct 16, 2020 1:52:27 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:53:14 PM User main
+INFO: User key in: purchaseitem qc1 15102020
+Oct 16, 2020 1:53:14 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:06:55 PM User main
+INFO: User key in: finditem box1
+Oct 16, 2020 2:06:55 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:07:22 PM User main
+INFO: User key in: finditem box1
+Oct 16, 2020 2:07:22 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:07:47 PM User main
+INFO: User key in: finditem box1
+Oct 16, 2020 2:07:47 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:08:15 PM User main
+INFO: User key in: finditem box1
+Oct 16, 2020 2:08:15 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:08:41 PM User main
+INFO: User key in: finditem box1
+Oct 16, 2020 2:08:41 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:09:14 PM User main
+INFO: User key in: finditem box1
+Oct 16, 2020 2:09:14 PM User main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:09:25 PM User main
+INFO: User key in: finditem box1
+Oct 16, 2020 2:09:25 PM User main
+INFO: Display: Please key in your command: 

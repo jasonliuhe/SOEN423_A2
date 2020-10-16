@@ -1,0 +1,226 @@
+Oct 15, 2020 11:53:32 AM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 15, 2020 11:53:32 AM BC_Server main
+INFO: UDP Server started.....
+Oct 15, 2020 11:57:22 AM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 15, 2020 11:57:22 AM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 11:48:23 AM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 11:48:23 AM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 11:49:04 AM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 11:49:04 AM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:11:22 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:11:22 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:12:58 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:12:58 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:12:58 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,2.99
+Oct 16, 2020 12:12:58 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:13:02 PM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 16, 2020 12:13:02 PM FunctionImpl listItemAvailability
+INFO: itemID: bc1 itemName: box quantity: 1 price: 2.99
+
+Oct 16, 2020 12:13:34 PM BC_Server main
+WARNING: null
+Oct 16, 2020 12:14:34 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:14:34 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:14:43 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:14:43 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:14:43 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,2.99
+Oct 16, 2020 12:14:43 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:14:47 PM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 16, 2020 12:14:47 PM FunctionImpl listItemAvailability
+INFO: itemID: bc1 itemName: box quantity: 1 price: 2.99
+
+Oct 16, 2020 12:15:20 PM BC_Server main
+WARNING: null
+Oct 16, 2020 12:16:29 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:16:29 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:16:35 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:16:35 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:16:35 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,2.99
+Oct 16, 2020 12:16:35 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:16:43 PM BC_Server main
+WARNING: null
+Oct 16, 2020 12:19:01 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:19:01 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:19:11 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:19:11 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:19:11 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,2.99
+Oct 16, 2020 12:19:11 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:19:19 PM BC_Server main
+WARNING: null
+Oct 16, 2020 12:22:04 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:22:04 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:22:12 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:22:12 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:22:12 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,2.99
+Oct 16, 2020 12:22:12 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:24:23 PM FunctionImpl purchaseItem
+INFO: Item out of stock, you already on waiting list.
+Oct 16, 2020 12:24:29 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:24:29 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:24:44 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:24:44 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:24:44 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,2.99
+Oct 16, 2020 12:24:44 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:25:52 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:25:52 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:25:57 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:25:57 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:25:57 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,2.99
+Oct 16, 2020 12:25:57 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:27:30 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:27:30 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:27:43 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:27:43 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:27:43 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,980
+Oct 16, 2020 12:27:43 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:30:05 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:30:05 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:30:36 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:30:36 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:30:36 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,980
+Oct 16, 2020 12:30:36 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:33:04 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:33:04 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:33:18 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:33:18 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:33:18 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,980
+Oct 16, 2020 12:33:18 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:34:20 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:34:20 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:34:24 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:34:24 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:34:33 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:34:33 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:34:33 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,980
+Oct 16, 2020 12:34:33 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:35:32 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:35:32 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:35:40 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:35:40 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:35:40 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,980
+Oct 16, 2020 12:35:40 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:36:57 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 12:36:57 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:37:05 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:37:05 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:37:05 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,980
+Oct 16, 2020 12:37:05 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 1:30:42 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 1:30:42 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 1:52:19 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 1:52:19 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 1:52:27 PM FunctionImpl purchaseItem
+INFO: Item out of stock, put you on waiting list.
+Oct 16, 2020 1:53:44 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 1:53:44 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 1:53:44 PM FunctionImpl addItem
+INFO: BCM1 add: box,1,980
+Oct 16, 2020 1:53:44 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 2:06:25 PM BC_Server main
+INFO: BC_SERVER ready and waiting ...
+Oct 16, 2020 2:06:25 PM BC_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 2:07:16 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 2:07:16 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 2:07:16 PM FunctionImpl addItem
+INFO: BCM1 add: box1,1,980
+Oct 16, 2020 2:07:16 PM FunctionImpl addItem
+INFO: Add new item succeed

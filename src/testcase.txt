@@ -1,0 +1,19 @@
+listitemavailability
+
+additem QC1 box1 1 40
+additem ON1 box1 1 2.99
+additem BC1 box1 1 980
+additem ON2 box 1 2.99
+
+removeitem QC1 1
+removeitem QC1 4
+removeitem QC1 -1
+removeitem ON1 1
+
+purchaseItem BC1 15102020
+purchaseItem QC1 15102020
+purchaseItem ON1 15102020
+purchaseItem ON2 15102020
+
+finditem box1
+

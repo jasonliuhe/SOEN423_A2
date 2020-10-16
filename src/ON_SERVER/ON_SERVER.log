@@ -1,0 +1,140 @@
+Oct 15, 2020 12:49:01 PM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 15, 2020 12:49:01 PM ON_Server main
+INFO: UDP Server started.....
+Oct 15, 2020 12:49:21 PM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 15, 2020 12:49:21 PM FunctionImpl listItemAvailability
+INFO: 
+Oct 15, 2020 12:49:37 PM FunctionImpl addItem
+INFO: Add item...
+Oct 15, 2020 12:49:37 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 15, 2020 12:49:37 PM FunctionImpl addItem
+INFO: ONM1 add: box,1,2.99
+Oct 15, 2020 12:49:37 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 15, 2020 12:49:43 PM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 15, 2020 12:49:43 PM FunctionImpl listItemAvailability
+INFO: itemID: qc1 itemName: box quantity: 1 price: 2.99
+
+Oct 15, 2020 12:49:48 PM FunctionImpl addItem
+INFO: Add item...
+Oct 15, 2020 12:49:48 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 15, 2020 12:49:48 PM FunctionImpl addItem
+INFO: ONM1 add: box,1,2.99
+Oct 15, 2020 12:49:48 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 15, 2020 12:49:59 PM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 15, 2020 12:49:59 PM FunctionImpl listItemAvailability
+INFO: itemID: on1 itemName: box quantity: 1 price: 2.99
+itemID: qc1 itemName: box quantity: 1 price: 2.99
+
+Oct 16, 2020 11:43:16 AM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 16, 2020 11:43:16 AM ON_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:11:13 PM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 16, 2020 12:11:13 PM ON_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 12:12:17 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 12:12:17 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 12:12:17 PM FunctionImpl addItem
+INFO: ONM1 add: box,1,2.99
+Oct 16, 2020 12:12:17 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 12:12:28 PM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 16, 2020 12:12:28 PM FunctionImpl listItemAvailability
+INFO: itemID: on1 itemName: box quantity: 1 price: 2.99
+
+Oct 16, 2020 1:30:37 PM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 16, 2020 1:30:37 PM ON_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 1:35:26 PM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 16, 2020 1:35:26 PM ON_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 1:35:46 PM FunctionImpl purchaseItem
+INFO: Item out of stock, put you on waiting list.
+Oct 16, 2020 1:36:25 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 1:36:25 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 1:36:25 PM FunctionImpl addItem
+INFO: ONMQ add: box,1,2.99
+Oct 16, 2020 1:36:25 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 1:37:46 PM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 16, 2020 1:37:46 PM ON_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 1:37:59 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 1:37:59 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 1:37:59 PM FunctionImpl addItem
+INFO: ONM1 add: box,1,2.99
+Oct 16, 2020 1:37:59 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 1:38:18 PM FunctionImpl purchaseItem
+INFO: Item out of stock, put you on waiting list.
+Oct 16, 2020 1:38:39 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 1:38:39 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 1:38:39 PM FunctionImpl addItem
+INFO: ONM1 add: box,1,2.99
+Oct 16, 2020 1:38:39 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 1:46:35 PM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 16, 2020 1:46:35 PM ON_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 1:46:52 PM FunctionImpl purchaseItem
+INFO: Item out of stock, put you on waiting list.
+Oct 16, 2020 1:47:01 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 1:47:01 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 1:47:01 PM FunctionImpl addItem
+INFO: ONM1 add: box,1,2.99
+Oct 16, 2020 1:47:01 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 1:51:29 PM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 16, 2020 1:51:29 PM ON_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 1:51:38 PM FunctionImpl purchaseItem
+INFO: Item out of stock, put you on waiting list.
+Oct 16, 2020 1:51:45 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 1:51:45 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 1:51:45 PM FunctionImpl addItem
+INFO: ONM1 add: box,1,2.99
+Oct 16, 2020 1:51:45 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 2:06:17 PM ON_Server main
+INFO: ON_SERVER ready and waiting ...
+Oct 16, 2020 2:06:17 PM ON_Server main
+INFO: UDP Server started.....
+Oct 16, 2020 2:08:36 PM FunctionImpl addItem
+INFO: Add item...
+Oct 16, 2020 2:08:36 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 16, 2020 2:08:36 PM FunctionImpl addItem
+INFO: ONM1 add: box1,1,2.99
+Oct 16, 2020 2:08:36 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 16, 2020 2:09:03 PM FunctionImpl removeItem
+INFO: Item remove succeed.
+Oct 16, 2020 2:09:21 PM FunctionImpl removeItem
+INFO: Item: on1 remove completely

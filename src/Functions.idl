@@ -1,0 +1,21 @@
+module CORBA_A2
+{
+  interface Functions
+  {
+    // manager
+    string addItem(in string managerID, in string itemID, in string itemName, in string quantity, in string price);
+
+    string removeItem (in string managerID, in string itemID, in string quantity);
+
+    string listItemAvailability (in string managerID);
+
+    // customer
+    string purchaseItem (in string customerID, in string itemID, in string dateOfPurchase);
+
+    string findItem (in string customerID, in string itemName);
+
+    string returnItem (in string customerID, in string itemID, in string dateOfReturn);
+
+    string exchangeItem (in string customerID, in string newItemID, in string oldItemID);
+  };
+};

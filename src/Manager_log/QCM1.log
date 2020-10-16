@@ -1,0 +1,300 @@
+Oct 15, 2020 12:31:55 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:32:11 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:32:11 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:33:54 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:33:54 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:35:34 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:35:34 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:39:51 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:39:51 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:39:58 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:39:58 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:40:02 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:40:02 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:42:28 PM Manager main
+INFO: User key in: quit
+Oct 15, 2020 12:42:47 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:42:56 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:42:56 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:44:13 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:44:13 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:44:19 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:44:19 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:45:57 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:45:57 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:46:02 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:46:02 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:46:52 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:46:59 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:46:59 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:47:06 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:47:06 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:47:17 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:47:17 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:47:41 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:47:41 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:47:45 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:47:45 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:47:50 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:47:50 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:47:55 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:47:55 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:48:00 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:48:00 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:49:05 PM Manager main
+INFO: User key in: quit
+Oct 15, 2020 12:53:31 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:53:33 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:53:33 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:53:37 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:53:37 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:53:39 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:53:39 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:53:40 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:53:40 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:53:44 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:53:44 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:56:26 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:56:31 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:56:31 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:56:36 PM Manager main
+INFO: User key in: removeitem qc1 1
+Oct 15, 2020 12:56:36 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:56:41 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:56:41 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:04 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:58:04 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:10 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:58:10 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:14 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:58:14 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:18 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 12:58:18 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:23 PM Manager main
+INFO: User key in: removeitem qc1 1
+Oct 15, 2020 12:58:23 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:28 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:58:28 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:37 PM Manager main
+INFO: User key in: removeitem qc1 4
+Oct 15, 2020 12:58:37 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:43 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:58:43 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:53 PM Manager main
+INFO: User key in: removeitem qc1 -1
+Oct 15, 2020 12:58:53 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 12:58:58 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 12:58:58 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:37:04 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:37:10 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 6:37:10 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:37:13 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 6:37:13 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:37:17 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 6:37:17 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:43:09 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 6:43:09 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:43:47 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 6:43:47 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:45:15 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 6:45:15 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:45:21 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 6:45:21 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:46:15 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 6:46:15 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:47:08 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:47:09 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 6:47:09 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:47:14 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 6:47:14 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:49:09 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 6:49:09 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:49:13 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 6:49:13 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:50:16 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 6:50:16 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:50:22 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 6:50:22 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:50:56 PM Manager main
+INFO: User key in: listitemavailability
+Oct 15, 2020 6:50:56 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 15, 2020 6:52:17 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 15, 2020 6:52:17 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:11:44 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:11:47 PM Manager main
+INFO: User key in: additem qc1 box 1 2.99
+Oct 16, 2020 12:11:47 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:11:53 PM Manager main
+INFO: User key in: listitemavailability
+Oct 16, 2020 12:11:53 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:12:00 PM Manager main
+INFO: User key in: quit
+Oct 16, 2020 12:28:02 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:28:15 PM Manager main
+INFO: User key in: additem qc1 box 1 40
+Oct 16, 2020 12:28:15 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:30:21 PM Manager main
+INFO: User key in: additem qc1 box 1 40
+Oct 16, 2020 12:30:21 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:30:23 PM Manager main
+INFO: User key in: quti
+Oct 16, 2020 12:30:23 PM Manager main
+INFO: Display: Please key in the right function name.
+Oct 16, 2020 12:30:23 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:30:25 PM Manager main
+INFO: User key in: quit
+Oct 16, 2020 12:37:26 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 12:37:31 PM Manager main
+INFO: User key in: additem qc1 box 1 40
+Oct 16, 2020 12:37:31 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:34:58 PM Manager main
+INFO: User key in: additem qc1 box 1 40
+Oct 16, 2020 1:34:58 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:35:13 PM Manager main
+INFO: User key in: listitemavailability
+Oct 16, 2020 1:35:13 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:36:05 PM Manager main
+INFO: User key in: quit
+Oct 16, 2020 1:52:57 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:52:59 PM Manager main
+INFO: User key in: additem qc1 box 1 40
+Oct 16, 2020 1:52:59 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 1:53:30 PM Manager main
+INFO: User key in: quit
+Oct 16, 2020 2:07:39 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:07:43 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 16, 2020 2:07:43 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:08:08 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 16, 2020 2:08:08 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:08:09 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 16, 2020 2:08:09 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 16, 2020 2:08:24 PM Manager main
+INFO: User key in: quit
