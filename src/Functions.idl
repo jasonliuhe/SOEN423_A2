@@ -16,6 +16,6 @@ module CORBA_A2
 
     string returnItem (in string customerID, in string itemID, in string dateOfReturn);
 
-    string exchangeItem (in string customerID, in string newItemID, in string oldItemID);
+    string exchangeItem (in string customerID, in string newItemID, in string oldItemID, in string dateofReturn);
   };
 };

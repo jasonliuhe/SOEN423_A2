@@ -14,9 +14,9 @@ public class udp {
 			byte [] message = msg.getBytes();
 
 			InetAddress aHost = InetAddress.getByName("localhost");
-            int serverPort1 = 500;
+            int serverPort = 500;
 
-			DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, serverPort1);//request packet ready
+			DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, serverPort);//request packet ready
 			aSocket.send(request);//request sent out
 			System.out.println("Request message sent from the Server" + " is : "+ new String(request.getData()));
 

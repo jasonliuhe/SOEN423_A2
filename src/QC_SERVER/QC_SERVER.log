@@ -515,3 +515,173 @@ Oct 16, 2020 2:08:09 PM FunctionImpl addItem
 INFO: QCM1 add: box1,3,40
 Oct 16, 2020 2:08:09 PM FunctionImpl addItem
 INFO: Add new item succeed
+Oct 17, 2020 11:26:26 AM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 11:26:26 AM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 11:27:06 AM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 11:27:06 AM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 11:27:06 AM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 11:27:06 AM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 11:54:03 AM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 11:54:03 AM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 11:55:33 AM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 11:55:33 AM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 11:55:33 AM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 11:55:33 AM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 11:57:40 AM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 17, 2020 11:57:40 AM FunctionImpl listItemAvailability
+INFO: itemID: qc1 itemName: box1 quantity: 0 price: 40
+
+Oct 17, 2020 11:58:13 AM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 11:58:13 AM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 11:58:13 AM FunctionImpl addItem
+INFO: QCM1 add: box1,1,980
+Oct 17, 2020 11:58:13 AM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 11:58:53 AM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 17, 2020 11:58:53 AM FunctionImpl listItemAvailability
+INFO: itemID: bc1 itemName: box1 quantity: 1 price: 980
+itemID: qc1 itemName: box1 quantity: 0 price: 40
+
+Oct 17, 2020 11:59:07 AM FunctionImpl removeItem
+INFO: Item: bc1 remove completely
+Oct 17, 2020 11:59:11 AM FunctionImpl listItemAvailability
+INFO: Get item list
+Oct 17, 2020 11:59:11 AM FunctionImpl listItemAvailability
+INFO: itemID: qc1 itemName: box1 quantity: 0 price: 40
+
+Oct 17, 2020 12:01:11 PM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 12:01:11 PM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 12:01:11 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 12:04:03 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 12:04:03 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 12:06:27 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 12:06:27 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 12:08:46 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 12:08:46 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 12:11:48 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 12:11:48 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 12:14:12 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 12:14:12 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 2:20:19 PM QC_Server main
+WARNING: 
+Oct 17, 2020 2:20:46 PM QC_Server main
+WARNING: 
+Oct 17, 2020 2:22:06 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 2:22:06 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 2:22:54 PM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 2:22:54 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 2:22:54 PM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 2:22:54 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 2:24:51 PM FunctionImpl exchangeItem
+INFO: Cannot exchange this item.
+Oct 17, 2020 2:28:27 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 2:28:27 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 2:32:55 PM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 2:32:55 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 2:32:55 PM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 2:32:55 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 2:33:20 PM FunctionImpl exchangeItem
+INFO: Cannot exchange this item.checkotherstorepurchasevalid,QCU1,960.0,qc1,40,bc2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Oct 17, 2020 2:37:37 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 2:37:37 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 2:38:12 PM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 2:38:12 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 2:38:12 PM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 2:38:12 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 2:38:27 PM FunctionImpl exchangeItem
+INFO: Cannot exchange this item.OK                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Oct 17, 2020 2:39:58 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 2:39:58 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 2:40:33 PM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 2:40:33 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 2:40:33 PM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 2:40:33 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 2:40:56 PM FunctionImpl exchangeItem
+INFO: return succeed!
+Oct 17, 2020 2:48:07 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 2:48:07 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 2:48:22 PM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 2:48:22 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 2:48:22 PM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 2:48:22 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 2:51:49 PM QC_Server main
+INFO: QC_SERVER ready and waiting ...
+Oct 17, 2020 2:51:49 PM QC_Server main
+INFO: UDP Server started.....
+Oct 17, 2020 2:52:03 PM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 2:52:03 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 2:52:03 PM FunctionImpl addItem
+INFO: QCM1 add: box1,1,40
+Oct 17, 2020 2:52:03 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 2:52:17 PM FunctionImpl addItem
+INFO: Add item...
+Oct 17, 2020 2:52:17 PM FunctionImpl addItem
+INFO: Cannot find this item in database. Adding new item.
+Oct 17, 2020 2:52:17 PM FunctionImpl addItem
+INFO: QCM1 add: box2,1,2.99
+Oct 17, 2020 2:52:17 PM FunctionImpl addItem
+INFO: Add new item succeed
+Oct 17, 2020 2:52:56 PM FunctionImpl exchangeItem
+INFO: return succeed!

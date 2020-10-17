@@ -79,6 +79,11 @@ public class Manager {
 							fh.close();
 						}
 						System.exit(0);
+					} else if (splitedUserInput[0].toLowerCase().equals("logout")) {																			//Log other ID
+						if (fh != null) {
+							fh.close();
+						}
+						break;
 					} else if (splitedUserInput[0].toLowerCase().equals("additem")) {						//AddItem
 						if (splitedUserInput.length != 5){
 							System.out.println("Number of Parameter incorrect. Please try again");

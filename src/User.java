@@ -70,6 +70,11 @@ public class User {
 							fh.close();
 						}
 						System.exit(0);
+					} else if (splitedUserInput[0].toLowerCase().equals("logout")) {
+						if (fh != null){
+							fh.close();
+						}
+						break;
 					} else if (splitedUserInput[0].toLowerCase().equals("purchaseitem")) {					//purchaseitem
 						if (splitedUserInput.length != 3){
 							System.out.println("Number of Parameter incorrect. Please try again");
@@ -172,7 +177,7 @@ public class User {
 									name = "ON_Server";
 								}
 								FunctionImpl = FunctionsHelper.narrow(ncRef.resolve_str(name));
-								System.out.println(FunctionImpl.exchangeItem(UID, splitedUserInput[1], splitedUserInput[2]));
+								System.out.println(FunctionImpl.exchangeItem(UID, splitedUserInput[1], splitedUserInput[2], splitedUserInput[3]));
 							} catch (Exception e){
 								System.out.println(e.getMessage());
 							}

@@ -298,3 +298,119 @@ Oct 16, 2020 2:08:09 PM Manager main
 INFO: Display: Please key in your command: 
 Oct 16, 2020 2:08:24 PM Manager main
 INFO: User key in: quit
+Oct 17, 2020 11:27:01 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:27:06 AM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 11:27:06 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:55:30 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:55:33 AM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 11:55:33 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:57:40 AM Manager main
+INFO: User key in: listitemavailability
+Oct 17, 2020 11:57:40 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:58:01 AM Manager main
+INFO: User key in: quit
+Oct 17, 2020 11:58:08 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:58:13 AM Manager main
+INFO: User key in: additem bc1 box1 1 980
+Oct 17, 2020 11:58:13 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:58:37 AM Manager main
+INFO: User key in: zuit
+Oct 17, 2020 11:58:37 AM Manager main
+INFO: Display: Please key in the right function name.
+Oct 17, 2020 11:58:37 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:58:40 AM Manager main
+INFO: User key in: quit
+Oct 17, 2020 11:58:47 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:58:53 AM Manager main
+INFO: User key in: listitemavailability
+Oct 17, 2020 11:58:53 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:59:07 AM Manager main
+INFO: User key in: removeitem bc1 -1
+Oct 17, 2020 11:59:07 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 11:59:11 AM Manager main
+INFO: User key in: listitemavailability
+Oct 17, 2020 11:59:11 AM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 12:00:49 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 12:00:59 PM Manager main
+INFO: User key in: additemqc1 box1 1 40
+Oct 17, 2020 12:00:59 PM Manager main
+INFO: Display: Please key in the right function name.
+Oct 17, 2020 12:00:59 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 12:01:10 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 12:01:11 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:22:40 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:22:53 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 2:22:54 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:30:36 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:30:39 PM Manager main
+INFO: User key in: logout
+Oct 17, 2020 2:31:00 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:31:02 PM Manager main
+INFO: User key in: logout
+Oct 17, 2020 2:32:48 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:32:55 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 2:32:55 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:38:05 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:38:12 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 2:38:12 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:40:32 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:40:33 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 2:40:33 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:48:17 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:48:22 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 2:48:22 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:48:24 PM Manager main
+INFO: User key in: logout
+Oct 17, 2020 2:51:59 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:52:03 PM Manager main
+INFO: User key in: additem qc1 box1 1 40
+Oct 17, 2020 2:52:03 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:52:15 PM Manager main
+INFO: User key in: bcm1
+Oct 17, 2020 2:52:15 PM Manager main
+INFO: Display: Please key in the right function name.
+Oct 17, 2020 2:52:15 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:52:17 PM Manager main
+INFO: User key in: additem bc2 box2 1 2.99
+Oct 17, 2020 2:52:17 PM Manager main
+INFO: Display: Please key in your command: 
+Oct 17, 2020 2:52:25 PM Manager main
+INFO: User key in: logout

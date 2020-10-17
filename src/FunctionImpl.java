@@ -4,9 +4,10 @@ import org.omg.CORBA.ORB;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.logging.Logger;
 
 class FunctionImpl extends FunctionsPOA {
@@ -17,6 +18,8 @@ class FunctionImpl extends FunctionsPOA {
     private Map<String, String> custom_Budget = new HashMap<>();
     private Map<String, String> CustomerID_itemDate = new HashMap<>();
     private Map<String, String> waitingList = new HashMap<>();
+    private String currentDate = "17102020";
+    private DateFormat sourceFormat = new SimpleDateFormat("ddMMyyyy");
 
     public void setORB(ORB orb_val){
         orb = orb_val;
@@ -243,7 +246,7 @@ class FunctionImpl extends FunctionsPOA {
                 }
             }
         }
-        return "2";
+        return "null";
     }
 
     @Override
@@ -342,12 +345,665 @@ class FunctionImpl extends FunctionsPOA {
 
     @Override
     public String returnItem(String customerID, String itemID, String dateOfReturn) {
-        return "6";
+        synchronized (this){
+            // return local item
+            customerID = customerID.toUpperCase();
+            itemID = itemID.toUpperCase();
+            if (customerID.substring(0, 2).equals(itemID.substring(0, 2))){
+                String CR = checkReturnValid(customerID, itemID, dateOfReturn);
+                if (!CR.equals("false")) {
+                    // valid to return
+                    StringBuilder newDate = new StringBuilder();
+                    String[] PR = CustomerID_itemDate.get(customerID).split(",");
+                    for (int x = 0; x < PR.length; x++) {
+                        if (!CR.equals(PR[x])){
+                            newDate.append(",").append(PR[x]);
+                        }
+                    }
+                    if (newDate.length() == 0){
+                        CustomerID_itemDate.put(customerID, newDate.toString());
+                        Double price = Double.parseDouble(itemID_itemName_quantity_price.get(itemID).split(",")[2]);
+                        custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                    } else {
+                        newDate.deleteCharAt(0);
+                        CustomerID_itemDate.put(customerID, newDate.toString());
+                        Double price = Double.parseDouble(itemID_itemName_quantity_price.get(itemID).split(",")[2]);
+                        custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                        logger.info("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                        System.out.println("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                    }
+                    logger.info("return succeed!");
+                    System.out.println("return succeed!");
+                    return "return succeed!";
+                } else {
+                    logger.info("Cannot return.");
+                    System.out.println("Cannot return.");
+                    return "Cannot return.";
+                }
+            } else {
+                // return other store item
+                DatagramSocket aSocket = null;
+                try{
+                    System.out.println("Start UDP client.");
+                    aSocket = new DatagramSocket(); //reference of the original socket
+                    String msg = "returnitem," + customerID + "," + itemID + "," + dateOfReturn;
+                    byte [] message = msg.getBytes();
+
+                    InetAddress aHost = InetAddress.getByName("localhost");
+                    int serverPort = 500;
+                    if (itemID.toUpperCase().substring(0, 2).equals("QC")){
+                        serverPort = 300;
+                    } else if (itemID.toUpperCase().substring(0, 2).equals("ON")) {
+                        serverPort = 400;
+                    }
+
+                    DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, serverPort);//request packet ready
+                    aSocket.send(request);//request sent out
+                    System.out.println("Request message sent from the Server" + " is : "+ new String(request.getData()));
+
+                    byte [] buffer = new byte[1000];//to store the received data, it will be populated by what receive method returns
+                    DatagramPacket reply = new DatagramPacket(buffer, buffer.length);//reply packet ready but not populated.
+
+                    //Client waits until the reply is received-----------------------------------------------------------------------
+                    aSocket.receive(reply);//reply received and will populate reply packet now.
+                    String replymsg = new String(reply.getData());
+                    if (replymsg.substring(0,4).equals("DATA")){
+                        custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                        System.out.println("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                        logger.info("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                        System.out.println("return succeed!");
+                        return "return succeed!";
+                    } else {
+                        return replymsg;
+                    }
+                }
+                catch(SocketException e){
+                    System.out.println("Socket: "+e.getMessage());
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                    System.out.println("IO: "+e.getMessage());
+                }
+                finally{
+                    if(aSocket != null) aSocket.close();//now all resources used by the socket are returned to the OS, so that there is no
+                                                        //resource leakage, therefore, close the socket after it's use is completed to release resources.
+                }
+            }
+            return "return fail";
+        }
+
     }
 
     @Override
-    public String exchangeItem(String customerID, String newItemID, String oldItemID) {
-        return "7";
+    public String exchangeItem(String customerID, String newItemID, String oldItemID, String dateOfReturn) {
+        synchronized (this){
+            String loc = checkLocation(customerID);
+            if (newItemID.substring(0, 2).toUpperCase().equals(loc) && (oldItemID.substring(0, 2).toUpperCase().equals(loc))){
+                // new and old item in local store
+                String valReturn = checkReturnValid(customerID, oldItemID, dateOfReturn);
+                if (valReturn.equals("false")){
+                    // not valid to return
+                    System.out.println("Cannot exchange this item.");
+                    logger.info("Cannot exchange this item.");
+                    return "Cannot exchange this item.";
+                } else {
+                    // valid to return
+                    String valPurchase = checkPurchaseValid(customerID, oldItemID, newItemID);
+                    if (!valPurchase.equals("OK")){
+                        // not valid to purchase
+                        System.out.println(valPurchase);
+                        logger.info(valPurchase);
+                        return valPurchase;
+                    } else {
+                        // valid to purchase
+                        // return old item
+                        customerID = customerID.toUpperCase();
+                        oldItemID = oldItemID.toUpperCase();
+                        if (customerID.substring(0, 2).equals(oldItemID.substring(0, 2))){
+                            StringBuilder newDate = new StringBuilder();
+                            String CR = checkReturnValid(customerID, oldItemID, dateOfReturn);
+                            String[] PR = CustomerID_itemDate.get(customerID).split(",");
+                            for (int x = 0; x < PR.length; x++) {
+                                if (!CR.equals(PR[x])){
+                                    newDate.append(",").append(PR[x]);
+                                }
+                            }
+                            if (newDate.length() == 0){
+                                CustomerID_itemDate.put(customerID, newDate.toString());
+                                Double price = Double.parseDouble(itemID_itemName_quantity_price.get(oldItemID).split(",")[2]);
+                                custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                            } else {
+                                newDate.deleteCharAt(0);
+                                CustomerID_itemDate.put(customerID, newDate.toString());
+                                Double price = Double.parseDouble(itemID_itemName_quantity_price.get(oldItemID).split(",")[2]);
+                                custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                                logger.info("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                                System.out.println("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                            }
+                            logger.info("return succeed!");
+                            System.out.println("return succeed!");
+                        }
+                        //buy new item
+                        int itemQuantity = Integer.parseInt(itemID_itemName_quantity_price.get(newItemID).split(",")[1]);
+                        itemQuantity = itemQuantity - 1;
+                        itemID_itemName_quantity_price.put(newItemID, itemID_itemName_quantity_price.get(newItemID).split(",")[0]+","+String.valueOf(itemQuantity)+","+itemID_itemName_quantity_price.get(newItemID).split(",")[2]);
+                        // add purchase record to purchaseDateCustomerID_item
+                        if (CustomerID_itemDate.get(customerID) != null){
+                            CustomerID_itemDate.put(customerID, CustomerID_itemDate.get(customerID)+","+newItemID+":"+dateOfReturn);
+                        } else {
+                            CustomerID_itemDate.put(customerID, newItemID+":"+dateOfReturn);
+                        }
+                        // update budget
+                        custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))-Double.parseDouble(itemID_itemName_quantity_price.get(newItemID).split(",")[2])));
+                        return "Purchase succeed.";
+                    }
+                }
+            }
+            else if ((!newItemID.substring(0, 2).toUpperCase().equals(loc)) && (oldItemID.substring(0, 2).toUpperCase().equals(loc))) {
+                // new item from other store; old item from local store
+                String valReturn = checkReturnValid(customerID, oldItemID, dateOfReturn);
+                if (valReturn.trim().equals("false")){
+                    // not valid to return
+                    System.out.println("Cannot exchange this item.");
+                    logger.info("Cannot exchange this item.");
+                    return "Cannot exchange this item.";
+                } else {
+                    // valid to return
+                    String oldItemPrice = itemID_itemName_quantity_price.get(oldItemID.toLowerCase()).split(",")[2];
+                    String valPurchase = checkOtherStorePurchaseValid(customerID, oldItemID, oldItemPrice, newItemID);
+                    if (!valPurchase.trim().equals("OK")) {
+                        // not valid to purchase
+                        System.out.println("Cannot exchange this item." + valPurchase);
+                        logger.info("Cannot exchange this item." + valPurchase);
+                        return "Cannot exchange this item." + valPurchase;
+                    } else {
+                        // valid to purchase
+                        // return old local item
+                        customerID = customerID.toUpperCase();
+                        oldItemID = oldItemID.toUpperCase();
+                        if (customerID.substring(0, 2).equals(oldItemID.substring(0, 2))){
+                            StringBuilder newDate = new StringBuilder();
+                            String CR = checkReturnValid(customerID, oldItemID, dateOfReturn);
+                            String[] PR = CustomerID_itemDate.get(customerID).split(",");
+                            for (int x = 0; x < PR.length; x++) {
+                                if (!CR.equals(PR[x])){
+                                    newDate.append(",").append(PR[x]);
+                                }
+                            }
+                            if (newDate.length() == 0){
+                                CustomerID_itemDate.put(customerID, newDate.toString());
+                                Double price = Double.parseDouble(itemID_itemName_quantity_price.get(oldItemID.toLowerCase()).split(",")[2]);
+                                custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                            } else {
+                                newDate.deleteCharAt(0);
+                                CustomerID_itemDate.put(customerID, newDate.toString());
+                                Double price = Double.parseDouble(itemID_itemName_quantity_price.get(oldItemID.toLowerCase()).split(",")[2]);
+                                custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                                logger.info("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                                System.out.println("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+price));
+                            }
+                            logger.info("return succeed!");
+                            System.out.println("return succeed!");
+                        }
+                        // purchase new other store item
+                        // other store
+                        int ServerPort = 300;
+                        if (newItemID.substring(0, 2).toUpperCase().equals("QC")){
+                            ServerPort = 300;
+                        } else if (newItemID.substring(0, 2).toUpperCase().equals("ON")) {
+                            ServerPort = 400;
+                        } else {
+                            ServerPort = 500;
+                        }
+                        DatagramSocket aSocket = null;
+                        try {
+                            System.out.println("Start UDP client.");
+                            aSocket = new DatagramSocket(); //reference of the original socket
+
+                            String msg = "purchaseitem," + customerID + "," + newItemID + "," + dateOfReturn + "," + custom_Budget.get(customerID);
+
+                            byte [] message = msg.getBytes();
+                            InetAddress aHost = InetAddress.getByName("localhost");
+                            DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, ServerPort);//request packet ready
+                            aSocket.send(request);//request sent out
+                            System.out.println("Request message sent from the Server" + " is : "+ new String(request.getData()));
+
+                            byte [] buffer = new byte[1000];//to store the received data, it will be populated by what receive method returns
+                            DatagramPacket reply = new DatagramPacket(buffer, buffer.length);//reply packet ready but not populated.
+
+                            //Client waits until the reply is received-----------------------------------------------------------------------
+                            aSocket.receive(reply);//reply received and will populate reply packet now.
+                            String replymsg = new String(reply.getData());
+                            System.out.println("Reply received from the server is: "+ replymsg);//print reply message after converting it to a string from bytes
+                            if (replymsg.substring(0, 2).equals("OK")){
+                                // add purchase record to purchaseDateCustomerID_item
+                                if (CustomerID_itemDate.get(customerID) != null){
+                                    CustomerID_itemDate.put(customerID, CustomerID_itemDate.get(customerID)+","+newItemID+":"+dateOfReturn);
+                                } else {
+                                    CustomerID_itemDate.put(customerID, newItemID+":"+dateOfReturn);
+                                }
+                                // update budget
+                                String[] rm = replymsg.split(",");
+                                custom_Budget.put(customerID, String.valueOf(Double.parseDouble(rm[1])));
+                                System.out.println("Budget:" + custom_Budget.get(customerID));
+                                return "Purchase succeed from " + newItemID.substring(0, 2) + " store";
+                            } else if (replymsg.trim().equals("WAITLIST")) {
+                                return "Item out of stock at " + newItemID.substring(0, 2) + " store, put you on waiting list.";
+                            } else {
+                                return replymsg;
+                            }
+                        }catch(SocketException e){
+                            System.out.println("Socket: "+e.getMessage());
+                        }
+                        catch(IOException e){
+                            e.printStackTrace();
+                            System.out.println("IO: "+e.getMessage());
+                        }
+                        finally{
+                            if(aSocket != null) aSocket.close();//now all resources used by the socket are returned to the OS, so that there is no
+                                                                //resource leakage, therefore, close the socket after it's use is completed to release resources.
+                        }
+                    }
+                }
+            }
+            else if ((newItemID.substring(0, 2).toUpperCase().equals(loc)) && (!oldItemID.substring(0, 2).toUpperCase().equals(loc))) {
+                // new item from local store; old item from other store
+                // check return validation
+                String returnValid = checkOtherStoreReturnValid(customerID, oldItemID, dateOfReturn);
+                if (! returnValid.equals("OK")){
+                    // not valid to return
+                    System.out.println(returnValid);
+                    logger.info(returnValid);
+                    return returnValid;
+                } else {
+                    // valid to return
+                    // check purchase validation
+                    String valPurchase = checkPurchaseValid(customerID, oldItemID, newItemID);
+                    if (!valPurchase.equals("OK")) {
+                        // not valid to purchase
+                        System.out.println(valPurchase);
+                        logger.info(valPurchase);
+                        return valPurchase;
+                    } else {
+                        // return old item to other store
+                        DatagramSocket aSocket = null;
+                        try{
+                            System.out.println("Start UDP client.");
+                            aSocket = new DatagramSocket(); //reference of the original socket
+                            String msg = "returnitem," + customerID + "," + oldItemID + "," + dateOfReturn;
+                            byte [] message = msg.getBytes();
+
+                            InetAddress aHost = InetAddress.getByName("localhost");
+                            int serverPort = 500;
+                            if (oldItemID.toUpperCase().substring(0, 2).equals("QC")){
+                                serverPort = 300;
+                            } else if (oldItemID.toUpperCase().substring(0, 2).equals("ON")) {
+                                serverPort = 400;
+                            }
+
+                            DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, serverPort);//request packet ready
+                            aSocket.send(request);//request sent out
+                            System.out.println("Request message sent from the Server" + " is : "+ new String(request.getData()));
+
+                            byte [] buffer = new byte[1000];//to store the received data, it will be populated by what receive method returns
+                            DatagramPacket reply = new DatagramPacket(buffer, buffer.length);//reply packet ready but not populated.
+
+                            //Client waits until the reply is received-----------------------------------------------------------------------
+                            aSocket.receive(reply);//reply received and will populate reply packet now.
+                            String replymsg = new String(reply.getData());
+                            if (replymsg.substring(0,4).equals("DATA")){
+                                custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                                System.out.println("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                                logger.info("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                                System.out.println("return succeed!");
+                                return "return succeed!";
+                            } else {
+                                return replymsg;
+                            }
+                        }
+                        catch(SocketException e){
+                            System.out.println("Socket: "+e.getMessage());
+                        }
+                        catch(IOException e){
+                            e.printStackTrace();
+                            System.out.println("IO: "+e.getMessage());
+                        }
+                        finally{
+                            if(aSocket != null) aSocket.close();//now all resources used by the socket are returned to the OS, so that there is no
+                                                                //resource leakage, therefore, close the socket after it's use is completed to release resources.
+                        }
+                        // purchase new item from local store
+                        int itemQuantity = Integer.parseInt(itemID_itemName_quantity_price.get(newItemID).split(",")[1]);
+                        itemQuantity = itemQuantity - 1;
+                        itemID_itemName_quantity_price.put(newItemID, itemID_itemName_quantity_price.get(newItemID).split(",")[0]+","+String.valueOf(itemQuantity)+","+itemID_itemName_quantity_price.get(newItemID).split(",")[2]);
+                        // add purchase record to purchaseDateCustomerID_item
+                        if (CustomerID_itemDate.get(customerID) != null){
+                            CustomerID_itemDate.put(customerID, CustomerID_itemDate.get(customerID)+","+newItemID+":"+dateOfReturn);
+                        } else {
+                            CustomerID_itemDate.put(customerID, newItemID+":"+dateOfReturn);
+                        }
+                        // update budget
+                        custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))-Double.parseDouble(itemID_itemName_quantity_price.get(newItemID).split(",")[2])));
+                        return "Purchase succeed.";
+                    }
+                }
+
+
+            }
+            else {
+                // new and old item from other store
+                // check return validation
+                String returnValid = checkOtherStoreReturnValid(customerID, oldItemID, dateOfReturn);
+                if (! returnValid.trim().equals("OK")) {
+                    // not valid to return
+                    System.out.println(returnValid);
+                    logger.info(returnValid);
+                    return returnValid;
+                } else {
+                    // valid to return
+                    // check purchase validation
+                    String oldItemPrice = itemID_itemName_quantity_price.get(oldItemID.toLowerCase()).split(",")[2];
+                    String valPurchase = checkOtherStorePurchaseValid(customerID, oldItemID, oldItemPrice, newItemID);
+                    if (!valPurchase.trim().equals("OK")) {
+                        // not valid to purchase
+                        System.out.println("Cannot exchange this item." + valPurchase);
+                        logger.info("Cannot exchange this item." + valPurchase);
+                        return "Cannot exchange this item." + valPurchase;
+                    } else {
+                        // valid to purchase
+                        // return old item to other store
+                        DatagramSocket aSocket = null;
+                        try{
+                            System.out.println("Start UDP client.");
+                            aSocket = new DatagramSocket(); //reference of the original socket
+                            String msg = "returnitem," + customerID + "," + oldItemID + "," + dateOfReturn;
+                            byte [] message = msg.getBytes();
+
+                            InetAddress aHost = InetAddress.getByName("localhost");
+                            int serverPort = 500;
+                            if (oldItemID.toUpperCase().substring(0, 2).equals("QC")){
+                                serverPort = 300;
+                            } else if (oldItemID.toUpperCase().substring(0, 2).equals("ON")) {
+                                serverPort = 400;
+                            }
+
+                            DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, serverPort);//request packet ready
+                            aSocket.send(request);//request sent out
+                            System.out.println("Request message sent from the Server" + " is : "+ new String(request.getData()));
+
+                            byte [] buffer = new byte[1000];//to store the received data, it will be populated by what receive method returns
+                            DatagramPacket reply = new DatagramPacket(buffer, buffer.length);//reply packet ready but not populated.
+
+                            //Client waits until the reply is received-----------------------------------------------------------------------
+                            aSocket.receive(reply);//reply received and will populate reply packet now.
+                            String replymsg = new String(reply.getData());
+                            if (replymsg.substring(0,4).equals("DATA")){
+                                custom_Budget.put(customerID, String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                                System.out.println("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                                logger.info("Update budget: " + String.valueOf(Double.parseDouble(custom_Budget.get(customerID))+Double.parseDouble(replymsg.split(",")[1].trim())));
+                                System.out.println("return succeed!");
+                                return "return succeed!";
+                            } else {
+                                return replymsg;
+                            }
+                        }
+                        catch(SocketException e){
+                            System.out.println("Socket: "+e.getMessage());
+                        }
+                        catch(IOException e){
+                            e.printStackTrace();
+                            System.out.println("IO: "+e.getMessage());
+                        }
+                        finally{
+                            if(aSocket != null) aSocket.close();//now all resources used by the socket are returned to the OS, so that there is no
+                                                                //resource leakage, therefore, close the socket after it's use is completed to release resources.
+                        }
+                        // purchase new item from other store
+                        int ServerPort = 300;
+                        if (newItemID.substring(0, 2).toUpperCase().equals("QC")){
+                            ServerPort = 300;
+                        } else if (newItemID.substring(0, 2).toUpperCase().equals("ON")) {
+                            ServerPort = 400;
+                        } else {
+                            ServerPort = 500;
+                        }
+                        aSocket = null;
+                        try {
+                            System.out.println("Start UDP client.");
+                            aSocket = new DatagramSocket(); //reference of the original socket
+
+                            String msg = "purchaseitem," + customerID + "," + newItemID + "," + dateOfReturn + "," + custom_Budget.get(customerID);
+
+                            byte [] message = msg.getBytes();
+                            InetAddress aHost = InetAddress.getByName("localhost");
+                            DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, ServerPort);//request packet ready
+                            aSocket.send(request);//request sent out
+                            System.out.println("Request message sent from the Server" + " is : "+ new String(request.getData()));
+
+                            byte [] buffer = new byte[1000];//to store the received data, it will be populated by what receive method returns
+                            DatagramPacket reply = new DatagramPacket(buffer, buffer.length);//reply packet ready but not populated.
+
+                            //Client waits until the reply is received-----------------------------------------------------------------------
+                            aSocket.receive(reply);//reply received and will populate reply packet now.
+                            String replymsg = new String(reply.getData());
+                            System.out.println("Reply received from the server is: "+ replymsg);//print reply message after converting it to a string from bytes
+                            if (replymsg.substring(0, 2).equals("OK")){
+                                // add purchase record to purchaseDateCustomerID_item
+                                if (CustomerID_itemDate.get(customerID) != null){
+                                    CustomerID_itemDate.put(customerID, CustomerID_itemDate.get(customerID)+","+newItemID+":"+dateOfReturn);
+                                } else {
+                                    CustomerID_itemDate.put(customerID, newItemID+":"+dateOfReturn);
+                                }
+                                // update budget
+                                String[] rm = replymsg.split(",");
+                                custom_Budget.put(customerID, String.valueOf(Double.parseDouble(rm[1])));
+                                System.out.println("Budget:" + custom_Budget.get(customerID));
+                                return "Purchase succeed from " + newItemID.substring(0, 2) + " store";
+                            } else if (replymsg.trim().equals("WAITLIST")) {
+                                return "Item out of stock at " + newItemID.substring(0, 2) + " store, put you on waiting list.";
+                            } else {
+                                return replymsg;
+                            }
+                        }catch(SocketException e){
+                            System.out.println("Socket: "+e.getMessage());
+                        }
+                        catch(IOException e){
+                            e.printStackTrace();
+                            System.out.println("IO: "+e.getMessage());
+                        }
+                        finally{
+                            if(aSocket != null) aSocket.close();//now all resources used by the socket are returned to the OS, so that there is no
+                                                                //resource leakage, therefore, close the socket after it's use is completed to release resources.
+                        }
+                    }
+                }
+            }
+            return "7";
+        }
+
+    }
+
+    private String checkReturnValid(String customerID, String itemID, String dateOfReturn) {
+        if (CustomerID_itemDate.get(customerID.toUpperCase()) != null) {
+            String[] PR = CustomerID_itemDate.get(customerID).split(",");
+            for (int x = 0; x < PR.length; x++){
+                String[] ID = PR[x].split(":");
+                long diffDays = 0;
+                if (ID[0].toUpperCase().equals(itemID.toUpperCase())){
+                    try {
+                        Date date = sourceFormat.parse(ID[1]);
+                        Date DateR = sourceFormat.parse(dateOfReturn);
+                        long d = DateR.getTime()-date.getTime();
+                        diffDays = d / (24 * 60 * 60 * 1000);
+                    } catch (java.text.ParseException e) {
+                        System.out.println(e.getMessage());
+                        return "false";
+                    }
+                    if (diffDays < 30){
+                        // over 30 days
+                        return PR[x];
+                    }
+                }
+            }
+            return "false";
+        } else {
+            return "false";
+        }
+    }
+
+    private String checkOtherStoreReturnValid(String customerID, String itemID, String dateOfReturn) {
+        DatagramSocket aSocket = null;
+        int serverPort = 500;
+        if (itemID.toUpperCase().substring(0, 2).equals("QC")){
+            serverPort = 300;
+        } else if (itemID.toUpperCase().substring(0, 2).equals("ON")) {
+            serverPort = 400;
+        }
+		try{
+			System.out.println("Start UDP client.");
+			aSocket = new DatagramSocket(); //reference of the original socket
+            String msg = "checkotherstorereturnvalid,"+","+customerID+","+itemID+","+dateOfReturn;
+			byte [] message = msg.getBytes();
+
+			InetAddress aHost = InetAddress.getByName("localhost");
+
+			DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, serverPort);//request packet ready
+			aSocket.send(request);//request sent out
+			System.out.println("Request message sent from the Server" + " is : "+ new String(request.getData()));
+
+			byte [] buffer = new byte[1000];//to store the received data, it will be populated by what receive method returns
+			DatagramPacket reply = new DatagramPacket(buffer, buffer.length);//reply packet ready but not populated.
+
+			//Client waits until the reply is received-----------------------------------------------------------------------
+			aSocket.receive(reply);//reply received and will populate reply packet now.
+            String replymsg = new String(reply.getData());
+			System.out.println("Reply received from the server is: "+ replymsg);//print reply message after converting it to a string from bytes
+            return replymsg;
+		}
+		catch(SocketException e){
+			System.out.println("Socket: "+e.getMessage());
+		}
+		catch(IOException e){
+			e.printStackTrace();
+			System.out.println("IO: "+e.getMessage());
+		}
+		finally{
+			if(aSocket != null) aSocket.close();//now all resources used by the socket are returned to the OS, so that there is no
+												//resource leakage, therefore, close the socket after it's use is completed to release resources.
+		}
+		return "false";
+    }
+
+    public String checkOtherStoreReturnValid(String customerID, String itemID, String dateOfReturn, boolean loc) {
+        if (CustomerID_itemDate.get(customerID) != null) {
+            String[] PR = CustomerID_itemDate.get(customerID).split(",");
+            for (int x = 0; x < PR.length; x++){
+                String[] ID = PR[x].split(":");
+                long diffDays = 0;
+                if (ID[0].toUpperCase().equals(itemID)){
+                    try {
+                        Date date = sourceFormat.parse(ID[1]);
+                        Date DateR = sourceFormat.parse(dateOfReturn);
+                        Date CurrentDate = sourceFormat.parse(currentDate);
+                        long d = DateR.getTime()-date.getTime();
+                        diffDays = d / (24 * 60 * 60 * 1000);
+                    } catch (java.text.ParseException e) {
+                        System.out.println(e.getMessage());
+                        return "false";
+                    }
+                    if (diffDays < 30){
+                        // over 30 days
+                        return "OK";
+                    }
+                }
+            }
+            return "false";
+        } else {
+            return "false";
+        }
+    }
+
+    private String checkPurchaseValid(String customerID, String oldItemID, String newItemID){
+        double oldBudget = Double.parseDouble(checkBudget(customerID));
+        double oldItemPrice = Double.parseDouble(itemID_itemName_quantity_price.get(oldItemID.toLowerCase()).split(",")[2]);
+        if (itemID_itemName_quantity_price.get(newItemID) == null){
+            return "New item does not exist.";
+        }
+        double newItemPrice = Double.parseDouble(itemID_itemName_quantity_price.get(newItemID.toLowerCase()).split(",")[2]);
+        int newItemQuality = Integer.parseInt(itemID_itemName_quantity_price.get(newItemID.toLowerCase()).split(",")[1]);
+        if (oldBudget+oldItemPrice < newItemPrice){
+            // not enough budget
+            return "Not enough budget to buy new item.";
+        }
+        if (newItemQuality<1){
+            return "New item out of stock.";
+        }
+        return "OK";
+    }
+
+    private String checkOtherStorePurchaseValid(String customerID,String oldItemID, String oldItemID_Price, String newItemID) {
+        String customerBudget = custom_Budget.get(customerID);
+        int serverPort = 500;
+        if (newItemID.substring(0, 2).equals("QC")){
+            serverPort = 300;
+        } else if (newItemID.substring(0, 2).equals("ON")){
+            serverPort = 400;
+        }
+        DatagramSocket aSocket = null;
+		try{
+			System.out.println("Start UDP client.");
+			aSocket = new DatagramSocket(); //reference of the original socket
+            String msg = "checkotherstorepurchasevalid,"+customerID+"," + customerBudget + ","+oldItemID+","+oldItemID_Price+","+newItemID;
+			byte [] message = msg.getBytes();
+
+			InetAddress aHost = InetAddress.getByName("localhost");
+
+			DatagramPacket request = new DatagramPacket(message, msg.length(), aHost, serverPort);//request packet ready
+			aSocket.send(request);//request sent out
+			System.out.println("Request message sent from the Server" + " is : "+ new String(request.getData()));
+
+			byte [] buffer = new byte[1000];//to store the received data, it will be populated by what receive method returns
+			DatagramPacket reply = new DatagramPacket(buffer, buffer.length);//reply packet ready but not populated.
+
+			//Client waits until the reply is received-----------------------------------------------------------------------
+			aSocket.receive(reply);//reply received and will populate reply packet now.
+            String replymsg = new String(reply.getData());
+			System.out.println("Reply received from the server is: "+ replymsg);//print reply message after converting it to a string from bytes
+            return replymsg;
+		}
+		catch(SocketException e){
+			System.out.println("Socket: "+e.getMessage());
+		}
+		catch(IOException e){
+			e.printStackTrace();
+			System.out.println("IO: "+e.getMessage());
+		}
+		finally{
+			if(aSocket != null) aSocket.close();//now all resources used by the socket are returned to the OS, so that there is no
+		}
+		return "false";
+    }
+
+    public String checkOtherStorePurchaseValid(String customerID, String customerBudget, String oldItemID, String oldItemID_Price, String newItemID, boolean loc){
+        // check customer have or have not already bought from this store.
+        if (!oldItemID.substring(0, 2).equals(newItemID.substring(0, 2)) && CustomerID_itemDate.get(customerID) != null){
+            // if old item and new item not from same store and customer already bought item from this store.
+            System.out.println("You already bought item from this store.");
+            logger.info("You already bought item from this store.");
+            return "You already bought item from this store.";
+        }
+        // check item has or has not in stock.
+        if (itemID_itemName_quantity_price.get(newItemID.toLowerCase()) == null || Integer.parseInt(itemID_itemName_quantity_price.get(newItemID.toLowerCase()).split(",")[1])<1){
+            // if store has no this item or quantity less than 1
+            System.out.println("Item out of stock.");
+            logger.info("Item out of stock.");
+            return "Item out of stock.";
+        }
+        // check budget
+        if (Double.parseDouble(itemID_itemName_quantity_price.get(newItemID.toLowerCase()).split(",")[2]) > Double.parseDouble(customerBudget) + Double.parseDouble(oldItemID_Price)){
+            return "Not enough budget.";
+        }
+        return "OK";
     }
 
     private void giveItemToCustumOnWaitingList(String itemID, Double price){
@@ -536,8 +1192,8 @@ class FunctionImpl extends FunctionsPOA {
     public String purchaseItem(String customerID, String itemID, String dateOfPurchase, String Budget){
         itemID = itemID.toLowerCase();
         if (CustomerID_itemDate.get(customerID) != null){
-                // if customer already bought item from this store.
-                return "You have already bought item from this store.";
+            // if customer already bought item from this store.
+            return "You have already bought item from this store.";
         }
         if (itemID_itemName_quantity_price.get(itemID) == null){
             // no this item
@@ -625,5 +1281,37 @@ class FunctionImpl extends FunctionsPOA {
             }
         }
         return rmsg.toString();
+    }
+
+    public String returnItem(String customerID, String itemID, String dateOfReturn, boolean loc){
+        synchronized (this){
+            // return local item
+            customerID = customerID.toUpperCase();
+            itemID = itemID.toUpperCase();
+            String CR = checkReturnValid(customerID, itemID, dateOfReturn);
+            if (!CR.equals("false")) {
+                // valid to return
+                StringBuilder newDate = new StringBuilder();
+                String[] PR = CustomerID_itemDate.get(customerID).split(",");
+                for (int x = 0; x < PR.length; x++) {
+                    if (!CR.equals(PR[x])){
+                        newDate.append(",").append(PR[x]);
+                    }
+                }
+                if (newDate.length() == 0){
+                    CustomerID_itemDate.remove(customerID);
+                } else {
+                    newDate.deleteCharAt(0);
+                    CustomerID_itemDate.put(customerID, newDate.toString());
+                    Double price = Double.parseDouble(itemID_itemName_quantity_price.get(itemID.toLowerCase()).split(",")[2]);
+                    System.out.println(price);
+                }
+                System.out.println("return succeed!");
+                return "DATA," + String.valueOf(Double.parseDouble(itemID_itemName_quantity_price.get(itemID.toLowerCase()).split(",")[2].trim()));
+            } else {
+                System.out.println("Cannot return.");
+                return "Cannot return.";
+            }
+        }
     }
 }

@@ -80,7 +80,14 @@ public class BC_Server {
                         res = "";
                     } else if (rm[0].equals("findItem")) {
                         res = functionImpl.findItem(rm[1], "BC", true);
+                    } else if (rm[0].equals("returnitem")) {
+                        res = functionImpl.returnItem(rm[1], rm[2], rm[3], true);
+                    } else if (rm[0].equals("checkotherstorepurchasevalid")) {
+                        res = functionImpl.checkOtherStorePurchaseValid(rm[1], rm[2], rm[3], rm[4], rm[5], true);
+                    } else if (rm[0].equals("checkotherstorereturnvalid")) {
+                        res = functionImpl.checkOtherStoreReturnValid(rm[1], rm[2], rm[3], true);
                     }
+                    System.out.println("reply: " + res);
                     DatagramPacket reply = new DatagramPacket(res.getBytes(), res.length(), request.getAddress(), request.getPort());// reply packet ready
                     aSocket.send(reply);// reply sent
                 }
